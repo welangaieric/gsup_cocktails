@@ -50,6 +50,11 @@ const Hero = () => {
             pin:true,
         }
       })
+      videoRef.current.onloadedmetadata = ()=>{
+        tl.to(videoRef.current,{
+            currentTime:videoRef.current.duration
+        })
+      }
   }, []);
   return (
     <>
@@ -90,7 +95,7 @@ const Hero = () => {
       <div className="video absolute inset-0">
         <video
           ref={videoRef}
-          src="/videos/input.mp4"
+          src="/videos/output.mp4"
           playsInline
           preload="auto"
           muted
